@@ -1,0 +1,261 @@
+:root{
+    --icon-width: 80px;
+    --icon-height: 80px;
+    --num-icons: 9;
+}
+
+body {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Saira Condensed", sans-serif;
+    font-size: 24px;
+    color: #eee;    
+
+    background: url(images/bg.jpg) no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+/* Wrapper */
+.wrapper {
+    position: relative;
+
+    width: 90%;
+    max-width: 1200px;
+    height: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgba(238, 238, 238, .2);
+    border: 2px solid rgba(0, 0, 0, .3);
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+
+    padding: 50px 10px;
+}
+
+.user-name {
+    margin-bottom: 5px;
+}
+
+/* Score */
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #111;
+}
+
+.score div {
+    font-weight: 600;
+
+    margin-bottom: 20px;
+    padding: 0px 30px;
+
+    background-color: #fff100;
+    border-radius: 10px;
+}
+
+.score button {
+    cursor: pointer;
+
+    font-weight: 600;
+    font-size: 26px;
+
+    background-color: #3f882e;
+    border-radius: 10px;
+    border: none;
+    
+    padding: 15px 30px;
+}
+
+#debag {
+    position: absolute;
+    top: 30%;
+
+    color: #000;
+    background: linear-gradient(45deg, rgba(128, 128, 128, .6) 0%, rgba(211, 211, 211, .6) 100%);
+    padding: 0 10px;
+}
+
+/* Slots */
+.slots {
+    position: relative;
+    width: calc(5 * var(--icon-width));
+
+    display: flex;
+    justify-content: space-between;
+
+    background: linear-gradient(45deg, rgba(128, 128, 128, .6) 0%, rgba(211, 211, 211, .6) 100%);
+	border-top: 1px solid rgba(238, 238, 238, .6);
+	border-right: 1px solid rgba(17, 17, 17, .4);
+	border-left: 1px solid rgba(17, 17, 17, .4);
+	border-bottom: 1px solid rgba(17, 17, 17, .4);
+	box-shadow: -2px 2px 3px rgba(17, 17, 17, .3);
+	border-radius: 3px;
+
+    padding: calc(0.4 * var(--icon-height));
+}
+
+.slots::before {
+    content: '';
+    
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    display: block;
+    width: 6%;
+    height: 3px;
+
+    background-color: rgba(17, 17, 17, .6   );
+}
+
+.slots::after {
+    content: '';
+    
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    display: block;
+    width: 6%;
+    height: 3px;
+
+    background-color: rgba(17, 17, 17, .6);
+}
+
+.reel {
+    border: 1px solid #111;
+    width: var(--icon-width);
+    height: calc(3 * var(--icon-height));
+
+    background-image: url(images/reel/slotreel.jpg);
+    background-repeat: repeat-y;
+    background-position: 0 0;
+}
+
+.win {
+    animation: win 200ms steps(2, end) infinite;
+}
+
+@keyframes win {
+    0% { 
+        background: linear-gradient(45deg, orange 0%, yellow 100%); 
+        box-shadow: 0 0 80px orange;
+    }
+    100% { 
+        background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+        box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3); 
+    }
+}
+
+.modal {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #001f43;
+    border-radius: 20px;
+
+    padding: 8px 10px;
+}
+
+.modal div {
+    display: flex;
+
+    font-weight: 600;
+    font-size: 30px;
+    color: #eee;
+}
+
+#result {
+    font-size: 30px;
+    color: #eee;
+
+    margin-left: 10px;
+    transition: .2s ease;
+}
+
+#restart {
+    cursor: pointer;
+    height: 40px;
+
+    font-weight: 600;
+    font-size: 20px;
+
+    background-color: #fff100;
+    border-radius: 10px;
+    border: none;
+}
+
+.block {
+    position: absolute;
+    display: none;
+
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: 100%;
+        padding: 20px;
+
+        margin: 0 10px;
+    }
+
+    .number {
+        width: 100px;
+        height: 35px;
+    }
+
+    .score div, .score button, #restart {
+        font-size: 18px;
+    }
+
+    .modal div, #result {
+        font-size: 20px;
+    }
+
+    #debag {
+        top: 26%;
+
+        font-size: 24px;
+    }
+}
+
+@media(max-width: 480px) {
+    .wrapper {
+        height: 80%;
+    }
+    
+    .slots {
+        width: calc(4 * var(--icon-width));
+        padding: calc(0.3 * var(--icon-height));
+    }
+
+    #debag {
+        top: 28%;
+
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="score">
+            <h2 class="user-name" id="username">Username</h2>
+            <div id="tries">Try 0 of 3</div>
+            <button id="btn">Generate</button>
+        </div>
+
+        <h2 id="debag"></h2>
+
+        <div class="slots">
+            <div class="reel"></div>
+            <div class="reel"></div>
+            <div class="reel"></div>
+        </div>
+
+        <div class="modal" id="modal">
+            <div>Result: <h2 id="result"></h2></div>
+    
+            <button id="restart">Restart game</button>
+        </div>
+    </div>
+
+    <div class="block"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
